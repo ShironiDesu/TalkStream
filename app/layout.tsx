@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import { cn } from "@/lib/utils";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -25,11 +27,16 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" suppressHydrationWarning>
+      <body 
+        className={cn(
+          'bg-white dark:bg-[#313338]',
+          `${geistSans.variable} ${geistMono.variable} antialiased`
+        )}
+      ><ThemeProvider attribute="class" defaultTheme="dark"  enableSystem={false} storageKey="talkstream-theme">
+
         {children}
+      </ThemeProvider>
       </body>
     </html>
     </ClerkProvider>
