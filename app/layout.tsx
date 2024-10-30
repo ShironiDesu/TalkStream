@@ -4,6 +4,8 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { cn } from "@/lib/utils";
+
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -33,7 +35,8 @@ export default function RootLayout({
           'bg-white dark:bg-[#313338]',
           `${geistSans.variable} ${geistMono.variable} antialiased`
         )}
-      ><ThemeProvider attribute="class" defaultTheme="dark"  enableSystem={false} storageKey="talkstream-theme">
+      >
+     <ThemeProvider attribute="class" defaultTheme="dark"  enableSystem={false} storageKey="talkstream-theme">
 
         {children}
       </ThemeProvider>
