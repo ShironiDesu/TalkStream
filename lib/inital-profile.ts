@@ -5,6 +5,8 @@ import { currentUser } from "@clerk/nextjs/server";
 
 export const initialProfile = async () =>{
     const user = await currentUser()
+    console.log(user);
+    
     if(!user) {
         return RedirectToSignIn
     }
@@ -15,6 +17,8 @@ export const initialProfile = async () =>{
         
     })
     if (profile) {
+        console.log(profile);
+        
           return profile  
     }
 

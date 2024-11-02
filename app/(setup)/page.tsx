@@ -6,6 +6,8 @@ import { redirect } from "next/navigation";
 
 const SetupPage = async() => {
     const profile = await initialProfile()
+     console.log(profile);
+     
     const server = await db.server.findFirst({
         where:{
             Member:{
@@ -16,7 +18,7 @@ const SetupPage = async() => {
         }
     })
     if(server) {
-      return redirect(`/server/${server.id}`)
+      return redirect(`/servers/${server.id}`)
     }
     return <InitialModal/>;
 }
