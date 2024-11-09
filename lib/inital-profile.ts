@@ -5,7 +5,7 @@ import { currentUser } from "@clerk/nextjs/server";
 
 export const initialProfile = async () =>{
     const user = await currentUser()
-    console.log(user);
+    // console.log(user);
     
     if(!user) {
         return RedirectToSignIn
