@@ -18,12 +18,12 @@ const server = await db.server.create({
     name,
     imageUrl,
     inviteCode:uuidv4(),
-    Channel:{
+    channels:{
         create:
           [  {name:"General",profileId:profile.id}]
         
     },
-    Member:{
+    members:{
         create:[{profileId:profile.id,role:MemberRole.ADMIN}]
     }}
 })

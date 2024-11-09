@@ -17,9 +17,9 @@ model Profile {
 
   createdAt DateTime  @default(now())
   updatedat DateTime  @updatedAt
-  Server    Server[]
-  Member    Member[]
-  Channel   Channel[]
+  servers   Server[]
+  members   Member[]
+  channels  Channel[]
 }
 
 model Server {
@@ -32,8 +32,8 @@ model Server {
   profile   Profile   @relation(fields: [profileId], references: [id], onDelete: Cascade)
   createdAt DateTime  @default(now())
   updatedat DateTime  @updatedAt
-  Member    Member[]
-  Channel   Channel[]
+  members   Member[]
+  channels  Channel[]
 
   @@index([profileId])
 }
