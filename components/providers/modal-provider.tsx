@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState } from "react";
 import { CreateServerModal } from "../modals/create-server-modal";
+import { InviteModal } from "../modals/invite-modal";
 
 export const ModalProvider =()=>{
  
@@ -13,6 +14,8 @@ export const ModalProvider =()=>{
     }
     return (
         <>
-        <CreateServerModal/></>
+        <CreateServerModal/>
+        <InviteModal/>
+        </>
     )
 }
