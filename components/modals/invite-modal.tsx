@@ -62,7 +62,9 @@ export const InviteModal = ()=>{
                 </Label>
                 <div className="flex items-center mt-2 gap-x-2">
                     <Input disabled={isLoading}
-                    className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0" value={inviteUrl}/>
+                    className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0" value={inviteUrl}
+                    onChange={(e) => {}}
+                    />
                 <Button disabled={isLoading} onClick={onCopy} size="icon">
                 {copied 
                 ?<Check className="w-4 h-4"/> 
