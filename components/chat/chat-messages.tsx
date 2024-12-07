@@ -1,10 +1,14 @@
 "use client";
 
 import { Member, Message, Profile } from "@prisma/client";
+import { format } from "date-fns";
 import ChatWelcome from "./chat-welcome";
 import { useChatQuery } from "@/hooks/use-chat-query";
 import { Loader2, ServerCrash } from "lucide-react";
 import { Fragment } from "react";
+import ChatItem from "./chat-item";
+import { useChatSocket } from "@/hooks/use-chat-socket";
+const DATE_FORMAT = "d MMM yyyy, HH:mm";
 type MessageWithMemberWithProfile = Message & {
   member: Member & {
     profile: Profile;
@@ -34,6 +38,8 @@ export default function ChatMessages({
   type,
 }: ChatMessagesProps) {
   const queryKey = `chat:${chatId}`;
+  const addKey = `chat:${chatId}:messages`;
+  const updateKey = `chat:${chatId}:messages:update`;
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, status } =
     useChatQuery({
       queryKey,
@@ -41,7 +47,7 @@ export default function ChatMessages({
       paramKey,
       paramValue,
     });
-
+  useChatSocket({ queryKey, addKey, updateKey });
   if (status === "pending") {
     return (
       <div className="flex flex-col flex-1 justify-center items-center">
@@ -70,7 +76,19 @@ export default function ChatMessages({
           {data?.pages?.map((group, i) => (
             <Fragment key={i}>
               {group.items.map((message: MessageWithMemberWithProfile) => (
-                <div key={message.id}>{message.content}</div>
+                <ChatItem
+                  currentMember={member}
+                  member={message.member}
+                  key={message.id}
+                  id={message.id}
+                  content={message.content}
+                  fileUrl={message.fileUrl}
+                  deleted={message.deleted}
+                  timestamp={format(new Date(message.createdAt), DATE_FORMAT)}
+                  isUpdated={message.updatedAt !== message.createdAt}
+                  socketUrl={socketUrl}
+                  socketQuery={socketQuery}
+                />
               ))}
             </Fragment>
           ))}

@@ -28,7 +28,7 @@ export const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
           href={value}
           target="_blank"
           rel="noopener noreferrer"
-          className=" ml-2 text-sm text-indigo-500 dark:text-indigo-400 hover:underline"
+          className="custom-link ml-2 text-sm text-indigo-500 dark:text-indigo-400 hover:underline"
         >
           {value}
         </a>
