@@ -10,7 +10,9 @@ body,
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-
+.custom-link {
+  word-break: break-all;
+}
 @layer base {
   :root {
     --background: 0 0% 100%;

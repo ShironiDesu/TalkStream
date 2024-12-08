@@ -5,7 +5,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { cn } from "@/lib/utils";
 import { ModalProvider } from "@/components/providers/modal-provider";
-
+import { SocketProvider } from "@/components/providers/socket-prodvider";
+import QueryProvider from "@/components/providers/query-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,19 +31,26 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-    <html lang="en" suppressHydrationWarning>
-      <body 
-        className={cn(
-          'bg-white dark:bg-[#313338]',
-          `${geistSans.variable} ${geistMono.variable} antialiased`
-        )}
-      >
-     <ThemeProvider attribute="class" defaultTheme="dark"  enableSystem={false} storageKey="talkstream-theme">
-<ModalProvider/>
-        {children}
-      </ThemeProvider>
-      </body>
-    </html>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={cn(
+            "bg-white dark:bg-[#313338]",
+            `${geistSans.variable} ${geistMono.variable} antialiased`
+          )}
+        >
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem={false}
+            storageKey="talkstream-theme"
+          >
+            <SocketProvider>
+              <ModalProvider />
+              <QueryProvider>{children}</QueryProvider>
+            </SocketProvider>
+          </ThemeProvider>
+        </body>
+      </html>
     </ClerkProvider>
   );
 }
