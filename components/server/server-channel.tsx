@@ -6,6 +6,7 @@ import { Edit, Hash, Lock, Mic, Trash, Video } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { ActionTooltip } from "../action-tooltip";
 import { ModalType, useModal } from "@/hooks/use-modal-store";
+import { MouseEvent } from "react";
 
 interface ServerChannelProps {
   channel: Channel;
@@ -29,7 +30,7 @@ export const ServerChannel = ({
   const onClick = () => {
     router.push(`/servers/${params?.serverId}/channels/${channel.id}`);
   };
-  const onAction = (e: React.MouseEvent, action: ModalType) => {
+  const onAction = (e: MouseEvent, action: ModalType) => {
     e.stopPropagation();
     onOpen(action, { channel, server });
   };
@@ -45,7 +46,7 @@ export const ServerChannel = ({
       <p
         className={cn(
           "line-clamp-1 font-semibold text-sm text-zinc-500 group-hover:text-zinc-600 dark:text-zinc-400 dark:group-hover:text-zinc-300 transition",
-          params.channelId === channel.id &&
+          params?.channelId === channel.id &&
             "text-primary dark:text-zinc-200 dark:group-hover:text-white"
         )}
       >
