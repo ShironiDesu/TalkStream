@@ -8,13 +8,12 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import qs from "query-string";
 import { Form, FormControl, FormField, FormItem } from "../ui/form";
-import { Input } from "../ui/input";
+
 import { Button } from "../ui/button";
 
 import { FileUpload } from "../file-upload";

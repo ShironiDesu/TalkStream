@@ -9,7 +9,7 @@ import { ServerSearch } from "./server-search";
 import { Hash, Mic, ShieldAlert, ShieldCheck, Video } from "lucide-react";
 import { Separator } from "../ui/separator";
 import { ServerSection } from "./server-section";
-import { channel } from "diagnostics_channel";
+
 import { ServerChannel } from "./server-channel";
 import ServerMember from "./server-member";
 

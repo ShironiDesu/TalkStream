@@ -8,7 +8,7 @@ import Image from "next/image";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { Form, FormControl, FormField, FormItem } from "../ui/form";
+import { Form, FormControl, FormField } from "../ui/form";
 import * as z from "zod";
 import { useForm } from "react-hook-form";
 import qs from "query-string";

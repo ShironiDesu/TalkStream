@@ -4,11 +4,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import axios from "axios";
 import { useForm } from "react-hook-form";

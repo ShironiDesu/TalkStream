@@ -4,15 +4,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import axios from "axios";
 import { useForm } from "react-hook-form";
-import { log } from "console";
+
 import {
   Form,
   FormControl,
@@ -24,7 +22,7 @@ import {
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import qs from "query-string";
-import { FileUpload } from "../file-upload";
+
 import { useParams, useRouter } from "next/navigation";
 import { useModal } from "@/hooks/use-modal-store";
 import { ChannelType } from "@prisma/client";

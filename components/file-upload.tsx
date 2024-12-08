@@ -1,7 +1,6 @@
 "use client";
 
-import { ourFileRouter } from "@/app/api/uploadthing/core";
-import { UploadButton, UploadDropzone } from "@/lib/uploadthing";
+import { UploadDropzone } from "@/lib/uploadthing";
 
 import "@uploadthing/react/styles.css";
 import { FileIcon, X } from "lucide-react";
