@@ -1,0 +1,1 @@
+Технологии: ts,next,react,supabase,prisma,tailwind,schadcn,zod,clerk,uploadthing,react-string,radix-ui,axios,uuid,zustand, react-hook-form, emoji-mart, socket-io,livekit

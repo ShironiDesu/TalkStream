@@ -63,10 +63,20 @@ const ChannelIdPage = async ({ params }: ChannelIdPageProps) => {
         </>
       )}
       {channel.type === ChannelType.AUDIO && (
-        <Mediaroom chatId={channel.id} video={false} audio={true} />
+        <Mediaroom
+          chatId={channel.id}
+          serverId={channel.serverId}
+          video={false}
+          audio={true}
+        />
       )}
       {channel.type === ChannelType.VIDEO && (
-        <Mediaroom chatId={channel.id} video={true} audio={true} />
+        <Mediaroom
+          chatId={channel.id}
+          serverId={channel.serverId}
+          video={true}
+          audio={true}
+        />
       )}
     </div>
   );
