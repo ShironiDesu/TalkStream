@@ -51,6 +51,7 @@ export const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
           alt="Upload"
           className="rounded-full"
           sizes="80px"
+          priority
         />
         <button
           onClick={() => onChange("")}

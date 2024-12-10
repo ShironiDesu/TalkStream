@@ -167,6 +167,7 @@ export default function ChatItem({
                 alt={content}
                 fill
                 className="object-cover"
+                priority
               />
             </a>
           )}
