@@ -61,7 +61,12 @@ const MemberIdPage = async ({ params, searchParams }: MemberIdPageProps) => {
         type="conversation"
       />
       {resolvedSearchParams.video && (
-        <Mediaroom chatId={conversation.id} video={true} audio={true} />
+        <Mediaroom
+          chatId={conversation.id}
+          video={true}
+          audio={true}
+          serverId={resolvedParams.serverId}
+        />
       )}
       {!resolvedSearchParams.video && (
         <>
