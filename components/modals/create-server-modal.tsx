@@ -90,6 +90,7 @@ export const CreateServerModal = () => {
                           onChange={field.onChange}
                         />
                       </FormControl>
+                      <FormMessage></FormMessage>
                     </FormItem>
                   )}
                 />
