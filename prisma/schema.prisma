@@ -5,13 +5,12 @@ generator client {
 datasource db {
   provider  = "postgresql"
   url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
 }
 
 model Profile {
   id       String @id @default(uuid())
-  userId   String @unique
-  name     String @db.VarChar(255)
+  userId   String @unique @db.VarChar(255)
+  name     String
   imageUrl String @db.Text
   email    String @db.Text
 
